@@ -69,6 +69,7 @@ erDiagram
 
 ## Detailed Table Dictionary
 
+
 ### 1. `users`
 Stores user profile information for authentication.
 * **id** (BIGINT, Primary Key): Unique auto-incrementing ID.
