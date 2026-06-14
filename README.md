@@ -84,15 +84,6 @@ npm install
 npm start
 ```
 * **Status Check:** Your browser will automatically open to `http://localhost:3000` with the login screen.
-
----
-
-## 📝 Research Paper & PDF compiler
-The research paper summarizing this project in **IEEE two-column style** is saved in the `research-paper` directory:
-* **Source Document**: [SmartPrep_IEEE_Research_Paper.html](./research-paper/SmartPrep_IEEE_Research_Paper.html) (Open in any text editor to modify email addresses or text).
-* **Batch Compiler**: [compile_pdf.bat](./research-paper/compile_pdf.bat) (Double-click this batch script anytime to automatically regenerate the PDF).
-* **Compiled PDF**: [SmartPrep_IEEE_Research_Paper.pdf](./research-paper/SmartPrep_IEEE_Research_Paper.pdf) (Open in any PDF reader).
-
 ---
 
 ## 🔍 Troubleshooting Tips
