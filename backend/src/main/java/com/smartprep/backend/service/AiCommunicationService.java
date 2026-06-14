@@ -13,7 +13,9 @@ import java.util.HashMap;
 public class AiCommunicationService {
 
     private final RestTemplate restTemplate = new RestTemplate();
-    private final String FASTAPI_URL = "http://localhost:8000";
+
+    @org.springframework.beans.factory.annotation.Value("${ai.service.url:http://localhost:8000}")
+    private String FASTAPI_URL;
 
     public Map<String, Object> generateNotes(String extractedText) {
         String url = FASTAPI_URL + "/generate-notes";

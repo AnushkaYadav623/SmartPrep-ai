@@ -1,0 +1,45 @@
+services:
+  # AI Service (FastAPI)
+  - type: web
+    name: smartprep-ai-service
+    env: docker
+    region: ohio
+    plan: free
+    dockerContext: ./ai-service
+    dockerfilePath: ./ai-service/Dockerfile
+    envVars:
+      - key: PORT
+        value: 8000
+
+  # Backend Service (Spring Boot)
+  - type: web
+    name: smartprep-backend
+    env: docker
+    region: ohio
+    plan: free
+    dockerContext: ./backend
+    dockerfilePath: ./backend/Dockerfile
+    envVars:
+      - key: SPRING_DATASOURCE_URL
+        fromDatabase:
+          name: smartprep-db
+          property: connectionString
+      - key: SPRING_DATASOURCE_USERNAME
+        fromDatabase:
+          name: smartprep-db
+          property: user
+      - key: SPRING_DATASOURCE_PASSWORD
+        fromDatabase:
+          name: smartprep-db
+          property: password
+      - key: AI_SERVICE_URL
+        fromService:
+          type: web
+          name: smartprep-ai-service
+          property: hostport
+
+databases:
+  # Free PostgreSQL Database on Render
+  - name: smartprep-db
+    region: ohio
+    plan: free
