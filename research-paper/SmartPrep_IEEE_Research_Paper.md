@@ -144,25 +144,9 @@ $$f_i = \lfloor s_i \times 3 \rfloor + 10, \quad w_i = \lfloor s_i \times 2.5 \r
 ## METHODOLOGY
 
 ### A. Research Framework
-We organized the SmartPrep system into a systematic processing framework:
-1. **Data Ingestion**: Parsers scrape text from uploaded PDFs, DOCX, and TXT files.
-2. **Preprocessing**: Sanitizes, normalizes, and semantically chunks text.
-3. **AI Generation & Tutoring**: Extracts concepts and calls our cascading LLM framework.
-4. **Performance Analysis**: Logs student accuracy and schedule completion, monitoring fatigue.
-5. **Output Visualization**: Updates the React dashboard with trend lines and study strategies.
+We organized the SmartPrep system into a systematic processing framework as shown in Fig. 1. The pipeline structures raw files into active study assets and predictions.
 
-```
-+----------------+      +---------------+      +-------------------+
-| Upload Files   | ---> | Document      | ---> | NLP Pipeline      |
-| & Past Papers  |      | Processor     |      | (spaCy / Regex)   |
-+----------------+      +---------------+      +---------+---------+
-                                                         |
-                                                         v
-+----------------+      +---------------+      +-------------------+
-| Dashboard &    | <--- | Analytics &   | <--- | Cascading LLM     |
-| Visualizations |      | Scheduler     |      | (Gemini/Fallback) |
-+----------------+      +---------------+      +-------------------+
-```
+*Fig. 1. SmartPrep Data Processing & System Pipeline workflow showing the end-to-end data ingestion, model processing, and presentation layers.*
 
 ### B. Technical Tools
 We configured the system with the following hardware and software parameters:
@@ -200,7 +184,9 @@ The workflow connects all modules via REST APIs:
 
 ## RESULT
 
-We evaluated SmartPrep's performance across document extraction speed, content generation quality, scheduling flexibility, and fallback resilience.
+We evaluated SmartPrep's performance across document extraction speed, content generation quality, scheduling flexibility, and fallback resilience. The quantitative learning outcome improvements compared to traditional static methods are summarized in Fig. 2.
+
+*Fig. 2. Traditional Learning Methods vs. AI-Personalized Learning Outcomes showing improvements in learning efficiency, personalization, engagement, and performance.*
 
 ### A. Functional & Resilience Testing
 We verified our FastAPI endpoints using a Python testing suite (`test_ai_service.py`) and validated our cascading LLM fallback by simulating API offline events:
