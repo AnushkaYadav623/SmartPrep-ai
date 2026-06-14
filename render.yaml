@@ -20,10 +20,18 @@ services:
     dockerContext: ./backend
     dockerfilePath: ./backend/Dockerfile
     envVars:
-      - key: SPRING_DATASOURCE_URL
+      - key: DB_HOST
         fromDatabase:
           name: smartprep-db
-          property: connectionString
+          property: host
+      - key: DB_PORT
+        fromDatabase:
+          name: smartprep-db
+          property: port
+      - key: DB_NAME
+        fromDatabase:
+          name: smartprep-db
+          property: database
       - key: SPRING_DATASOURCE_USERNAME
         fromDatabase:
           name: smartprep-db
